@@ -6,6 +6,6 @@ import random
 
 async def wait_random(max_delay = 10):
     """Return the random values"""
-    ans = random.randint(0, max_delay)
-    asyncio.sleep(ans)
+    ans = random.random() * max_delay
+    await asyncio.sleep(ans)
     return ans
