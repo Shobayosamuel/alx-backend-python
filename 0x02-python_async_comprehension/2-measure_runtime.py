@@ -12,8 +12,6 @@ async def measure_runtime():
         Return the time taken to run the list of async comprehension
     """
     start_time = time.time()
-    tasks = [async_comprehension(), async_comprehension(),
-             async_comprehension(), async_comprehension()]
-    await asyncio.gather(*tasks)
+    await asyncio.gather(*(async_comprehension() for i in range(4)))
     end_time = time.time()
     return end_time - start_time
