@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
+"""Task to create task_wait_n"""
+
+
 from typing import List
 import asyncio
-
-
 task_wait_random = __import__('3-tasks').task_wait_random
 
 
