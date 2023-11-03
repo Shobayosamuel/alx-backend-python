@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+"""Class to implement test_org method"""
+
+
 import unittest
 from parameterized import parameterized
 from unittest.mock import patch, Mock, MagicMock, PropertyMock
@@ -7,6 +10,7 @@ from client import GithubOrgClient
 
 
 class TestGithubOrgClient(unittest.TestCase):
+    """Implement test org method"""
     @parameterized.expand([
         ('google', {'value': 'google'}),
         ('abc', {'value': 'abc'})
@@ -14,6 +18,7 @@ class TestGithubOrgClient(unittest.TestCase):
     @patch('client.get_json')
     def test_org(self, org_name: str, expected_result: Dict,
                  mock_function: MagicMock) -> None:
+        """test the github client org"""
         mock_function.return_value = MagicMock(return_value=expected_result)
         gh_client = GithubOrgclient(org_name)
         self.assertEqual(gh_client.org(), expected_response)
