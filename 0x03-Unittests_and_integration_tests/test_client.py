@@ -12,7 +12,8 @@ class TestGithubOrgClient(unittest.TestCase):
         ('abc', {'value': 'abc'})
     ])
     @patch('client.get_json')
-    def test_org(self, org_name: str, expected_result: Dict, mock_function: MagicMock) -> None:
+    def test_org(self, org_name: str, expected_result: Dict,
+                 mock_function: MagicMock) -> None:
         mock_function.return_value = MagicMock(return_value=expected_result)
         gh_client = GithubOrgclient(org_name)
         self.assertEqual(gh_client.org(), expected_response)
